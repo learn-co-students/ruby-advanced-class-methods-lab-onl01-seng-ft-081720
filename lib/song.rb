@@ -42,7 +42,6 @@ class Song
   end
 
   def self.new_from_filename(fileName)
-    
     split= fileName.split(" - ")
     removeMP3= split[1].split(".")
     songName=removeMP3[0]
@@ -51,13 +50,10 @@ class Song
     new.name= songName
     new.artist_name=artistName
     new
-
   end
 
   def self.create_from_filename(fileName)
-
     self.all << self.new_from_filename(fileName)
-
   end
 
   def self.destroy_all
