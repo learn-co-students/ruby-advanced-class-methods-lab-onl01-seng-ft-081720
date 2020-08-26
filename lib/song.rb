@@ -11,9 +11,9 @@ class Song
   end
 
   def self.create
-      name=self.new
-      self.all << name 
-      name
+    name=self.new
+    self.all << name 
+    name
   end 
 
   def self.new_by_name(name)
@@ -40,4 +40,18 @@ class Song
   def self.alphabetical 
     self.all.sort_by {|song| song.name}
   end
+
+  def self.new_from_filename(fileName)
+    
+    split= fileName.split("-")
+    removeMP3= split[1].split(".")
+    songName=removeMP3[0]
+    artistName=split[0]
+    new=self.new
+    new.name= songName
+    new.artist_name=artistName
+    new
+
+  end
+
 end
